@@ -1,0 +1,5 @@
+base:
+  '*':
+    - django
+    - gunicorn
+    - nginx

@@ -1,0 +1,14 @@
+server {
+        listen 80;
+        server_name {{ VAR_SERVER_NAME }};
+
+        location = /favicon.ico { access_log off; log_not_found off; }
+        location /static/ {
+                root /root/website/;
+        }
+
+        location / {
+                include proxy_params;
+                proxy_pass http://unix:/root/website/websocket.sock;
+        }
+}
